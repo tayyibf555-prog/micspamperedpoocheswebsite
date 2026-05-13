@@ -179,9 +179,8 @@ section.sec.cream2 { background: var(--bg-2); }
 }
 @media (max-width: 720px) {
   :root { --pad-y: 72px; }
-  /* Hero split → stack on mobile */
+  /* Hero split → stack on mobile (photo column stays visible) */
   .hero-split-grid { grid-template-columns: 1fr !important; }
-  .hero-split-grid .hero-collage { display: none !important; }
   /* About grid → stack */
   .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
   /* Service area grid → stack */
@@ -224,6 +223,51 @@ section.sec.cream2 { background: var(--bg-2); }
   .hero-split-grid .sticker { font-size: 11px; padding: 6px 12px; }
   .hero-split-grid p { font-size: 16px !important; }
   .hero-split-grid .btn { padding: 12px 18px; font-size: 13px; }
+
+  /* Hero photo column on mobile — same composition as desktop,
+     repositioned so nothing escapes the viewport edges. */
+  .hero-split-grid .hero-collage {
+    height: 480px !important;
+    margin-top: 24px !important;
+  }
+  /* Main photo — fill the box (no negative inset margin) */
+  .hero-split-grid .hero-collage > div:first-child {
+    inset: 0 !important;
+    border-radius: 18px !important;
+  }
+  /* Scottie inset (.float-slow) — smaller, anchored bottom-right */
+  .hero-split-grid .hero-collage > .float-slow {
+    width: 140px !important;
+    height: 110px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    border-width: 3px !important;
+    border-radius: 14px !important;
+  }
+  /* "Mic is grooming right now" pill (.float-fast) — top-left inside */
+  .hero-split-grid .hero-collage > .float-fast {
+    left: 10px !important;
+    top: 10px !important;
+    padding: 8px 14px !important;
+  }
+  .hero-split-grid .hero-collage > .float-fast span:last-child {
+    font-size: 11.5px !important;
+  }
+  /* Bessie testimonial pull-quote — bottom-left, smaller, in-frame */
+  .hero-split-grid .hero-collage > div:last-child {
+    left: 10px !important;
+    right: auto !important;
+    bottom: 10px !important;
+    max-width: 200px !important;
+    padding: 12px 16px !important;
+  }
+  .hero-split-grid .hero-collage > div:last-child > div:first-child {
+    font-size: 17px !important;
+  }
+  .hero-split-grid .hero-collage > div:last-child > div:last-child {
+    font-size: 10px !important;
+    margin-top: 6px !important;
+  }
 
   /* About — single column + safe badge positions */
   .about-grid { gap: 56px !important; }
