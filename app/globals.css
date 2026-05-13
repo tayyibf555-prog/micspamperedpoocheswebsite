@@ -211,3 +211,108 @@ section.sec.cream2 { background: var(--bg-2); }
   .booking-shell { grid-template-columns: 1fr !important; }
   .booking-aside { display: none; }
 }
+
+/* ============================================================
+   MOBILE PASS — phones 720 and 380
+   ============================================================ */
+@media (max-width: 720px) {
+  /* Hero — shrink title, allow it to breathe */
+  .hero-split-grid h1.display {
+    font-size: clamp(44px, 12vw, 64px) !important;
+    margin: 22px 0 18px !important;
+  }
+  .hero-split-grid .sticker { font-size: 11px; padding: 6px 12px; }
+  .hero-split-grid p { font-size: 16px !important; }
+  .hero-split-grid .btn { padding: 12px 18px; font-size: 13px; }
+
+  /* About — single column + safe badge positions */
+  .about-grid { gap: 56px !important; }
+  /* The two absolutely-positioned badges over the photo */
+  .about-grid > div:first-child > div:nth-child(2) {
+    right: 8px !important;
+    top: -14px !important;
+    font-size: 12px !important;
+    padding: 10px 14px !important;
+  }
+  .about-grid > div:first-child > div:nth-child(3) {
+    left: 8px !important;
+    bottom: -28px !important;
+    width: 112px !important;
+    height: 112px !important;
+    padding: 10px !important;
+  }
+  .about-grid > div:first-child > div:nth-child(3) .display {
+    font-size: 17px !important;
+  }
+  /* About credentials grid 2 → 1 */
+  .about-grid > div:last-child > div[style*="repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Services pricing matrix — collapse 6-col table to a card per row */
+  .svc-matrix { padding: 20px 18px !important; }
+  .svc-matrix-head { display: none !important; }
+  .svc-matrix-row {
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-areas:
+      "title title title title"
+      "p1 p2 p3 p4"
+      "btn btn btn btn" !important;
+    gap: 12px 8px !important;
+    padding: 20px 0 !important;
+    align-items: center !important;
+  }
+  .svc-matrix-row > div:first-child { grid-area: title; }
+  .svc-matrix-row > div:nth-child(2) { grid-area: p1; }
+  .svc-matrix-row > div:nth-child(3) { grid-area: p2; }
+  .svc-matrix-row > div:nth-child(4) { grid-area: p3; }
+  .svc-matrix-row > div:nth-child(5) { grid-area: p4; }
+  .svc-matrix-row > button { grid-area: btn; width: 100%; padding: 12px !important; font-size: 12px !important; }
+  .svc-matrix-row > div:not(:first-child):not(:last-child) {
+    font-size: 18px !important;
+    padding: 6px 4px !important;
+    background: var(--bg-2);
+    border-radius: 8px;
+    text-align: center !important;
+  }
+
+  /* "Honest pricing" header — keep CTA below heading */
+  #services .container > div:first-child > div:first-child { width: 100%; }
+  #services .container > div:first-child { gap: 20px !important; }
+
+  /* Gallery — reset asymmetric positions, single-column stack */
+  .cases-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+  .cases-grid > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    min-height: 280px !important;
+  }
+
+  /* Testimonials — remove stagger transforms on mobile */
+  .reviews-grid > div { transform: none !important; }
+
+  /* Service area — drop hardcoded grids, pad faux map */
+  .area-grid > div:first-child > div[style*="repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA strip — disclaimers wrap nicely */
+  .cta-strip-grid h2 { font-size: clamp(40px, 11vw, 56px) !important; }
+
+  /* Footer — single column on small phones */
+  .foot-grid { gap: 32px !important; }
+}
+
+@media (max-width: 480px) {
+  .foot-grid { grid-template-columns: 1fr !important; }
+  .svc-matrix-row > div:not(:first-child):not(:last-child) { font-size: 16px !important; }
+  .reviews-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Touch — disable hover transforms that get sticky */
+@media (hover: none) {
+  .ph, .sticker, .btn { transition: none; }
+}

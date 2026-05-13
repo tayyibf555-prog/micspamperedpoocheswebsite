@@ -445,6 +445,7 @@ function ServicesMatrix({ onBook }: { onBook: () => void }) {
   ];
   return (
     <div
+      className="svc-matrix"
       style={{
         background: "var(--card)", border: "1.5px solid var(--ink)",
         borderRadius: 24, padding: "28px 32px",
@@ -452,6 +453,7 @@ function ServicesMatrix({ onBook }: { onBook: () => void }) {
       }}
     >
       <div
+        className="svc-matrix-head"
         style={{
           display: "grid",
           gridTemplateColumns: "1.6fr repeat(4, 1fr) 1fr",
@@ -470,6 +472,7 @@ function ServicesMatrix({ onBook }: { onBook: () => void }) {
       {matrix.map(([svc, prices, hint], i) => (
         <div
           key={svc}
+          className="svc-matrix-row"
           style={{
             display: "grid",
             gridTemplateColumns: "1.6fr repeat(4, 1fr) 1fr",
@@ -535,6 +538,7 @@ function Gallery() {
         </div>
 
         <div
+          className="cases-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1.4fr 1fr 1fr",
